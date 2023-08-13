@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 
-import { Events } from './components/Events'
+import { Events } from './components/events'
 import { Navbar } from './components/layout'
 
 import './App.css'
