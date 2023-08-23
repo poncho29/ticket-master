@@ -15,14 +15,15 @@ export const Navbar = ({ onSearch }) => {
   }
 
   return (
-    <div>
-      <p>Busca un evento</p>
+    <div className="w-100 h-14 flex items-center justify-between px-4 bg-slate-600">
+      <p className="text-2xl text-white font-bold uppercase">La Boletera</p>
       <input
         type="text"
         placeholder="Busca tu evento favorito"
         value={search}
         onChange={handleInputChange}
         onKeyDown={handleInputKeyDown}
+        className="px-2 py-1 border-0 rounded-md focus:outline-none"
       />
     </div>
   )

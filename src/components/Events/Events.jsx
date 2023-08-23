@@ -11,7 +11,7 @@ export const Events = ({ searchEvent }) => {
   }
 
   return (
-    <div>
+    <div className="w-100 max-w-screen-lg flex flex-col gap-2 mx-auto py-4">
       {events.length > 0 ? (
         events.map((event) => (
           <EventItem

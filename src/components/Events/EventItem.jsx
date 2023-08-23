@@ -7,16 +7,24 @@ export const EventItem = ({ event, onViewEvent }) => {
   }
 
   return (
-    <div>
-      <img src={event.image} alt={event.name} />
-      <h4>{event.name}</h4>
-      <p>{event.info}</p>
-      <button
-        type="button"
-        onClick={handleSeeMoreEvent}
-      >
-        Ver más
-      </button>
+    <div className="w-100 h-32 flex border border-orange-800">
+      <div className="w-32">
+        <img
+          src={event.image}
+          alt={event.name}
+          className="w-full object-cover"
+        />
+      </div>
+      <div>
+        <h4>{event.name}</h4>
+        <p>{event.info}</p>
+        <button
+          type="button"
+          onClick={handleSeeMoreEvent}
+        >
+          Ver más
+        </button>
+      </div>
     </div>
   )
 }
