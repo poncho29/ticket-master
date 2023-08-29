@@ -1,10 +1,29 @@
 import { PropTypes } from "prop-types";
+import { api } from "../../api";
 
 import { EventItem } from "./EventItem";
 import { useEventsData } from "../../hooks/useEventsData";
+import { useEffect } from "react";
 
 export const Events = ({ searchEvent }) => {
   const { events, loading } = useEventsData({searchEvent});
+
+  const handleGetEvents = async () => {
+    try {
+      const resp = await api.get(`/events.json`);
+      console.log(resp);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    const getEvents = async() => {
+      await handleGetEvents()
+    }
+
+    getEvents()
+  }, []);
 
   if (loading) {
     return <div>Cargando...</div>
