@@ -7,19 +7,22 @@ export const EventItem = ({ event, onViewEvent }) => {
   }
 
   return (
-    <div className="w-100 h-32 flex border border-orange-800">
-      <div className="w-32">
+    <div className="w-full h-auto flex flex-col border border-slate-300 md:h-40 md:flex-row">
+      <figure className="w-full md:w-3/12">
         <img
           src={event.image}
           alt={event.name}
-          className="w-full object-cover"
+          className="w-full h-full object-cover"
         />
-      </div>
-      <div>
-        <h4>{event.name}</h4>
-        <p>{event.info}</p>
+      </figure>
+      <div className="w-full flex flex-col gap-4 px-4 py-4 md:w-9/12">
+        <h4 className="font-medium">{event.name}</h4>
+        {event.info && (
+          <p className="h-20 overflow-y-scroll">{event.info}</p>
+        )}
         <button
           type="button"
+          className=" w-full h-7 text-white rounded-md bg-slate-600 md:w-20 md:ml-auto"
           onClick={handleSeeMoreEvent}
         >
           Ver más

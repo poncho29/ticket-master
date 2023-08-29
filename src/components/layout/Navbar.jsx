@@ -16,7 +16,7 @@ export const Navbar = ({ onSearch }) => {
 
   return (
     <div className="w-100 h-14 flex items-center justify-between px-4 bg-slate-600">
-      <p className="text-2xl text-white font-bold uppercase">La Boletera</p>
+      <p className="text-xl text-white font-bold uppercase md:text-2xl">La Boletera</p>
       <input
         type="text"
         placeholder="Busca tu evento favorito"
