@@ -10,7 +10,7 @@ export const EventItem = ({ event, onViewEvent }) => {
     <div className="w-full h-auto flex flex-col border border-slate-300 md:h-40 md:flex-row">
       <figure className="w-full md:w-3/12">
         <img
-          src={event.image}
+          src={event.images[0].url}
           alt={event.name}
           className="w-full h-full object-cover"
         />
@@ -37,7 +37,7 @@ EventItem.propTypes = {
     id: PropTypes.string,
     info: PropTypes.string,
     name: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired
+    images: PropTypes.array.isRequired
   }),
   onViewEvent: PropTypes.func
 }

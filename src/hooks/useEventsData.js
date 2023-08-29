@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 
 import data from '../assets/data/events.json';
+import { getAllEvents } from '../services/events';
 
 const initialState = data._embedded.events.map((event) => ({
   id: event.id,
@@ -14,11 +15,20 @@ export const useEventsData = ({searchEvent = ''}) => {
   const [events, setEvents] = useState(initialState);
 
   useEffect(() => {
-    setTimeout(() => {
+    const getEvents = async() => {
+      const { data, error } = await getAllEvents();
+      if (error) {
+        setLoading(false);
+        console.log(error);
+      }
+
+      console.log(data);
+      setEvents(data._embedded.events);
       setLoading(false);
-      setEvents(events);
-    }, [1000]);
-  }, [events]);
+    }
+
+    getEvents();
+  }, []);
 
   const filteredEvents = useMemo(() => {
     let cloneEvents = [...events];
